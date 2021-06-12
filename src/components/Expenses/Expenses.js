@@ -17,8 +17,9 @@ const Expenses = (props) => {
 
     const filteredExpenses = props.expenses.filter(expense => expense.date.getFullYear().toString() === filteredYear);
 
-    const annualExpenses = filteredExpenses.map(expense => expense.amount);
+    const sortedExpenses = filteredExpenses.slice().sort((a, b) => b.date - a.date);
 
+    const annualExpenses = filteredExpenses.map(expense => expense.amount);
 
     return (
         <div>
@@ -26,7 +27,7 @@ const Expenses = (props) => {
                 <ExpensesFilter onExpensesFilterChange={handleExpensesFilterChange} selectedYear={filteredYear} />
                 <ExpensesChart expenses={filteredExpenses} />
                 <ExpensesTotal expense={annualExpenses} year={filteredYear}/>
-                <ExpensesList items={filteredExpenses}/>
+                <ExpensesList items={sortedExpenses}/>
             </Card>
         </div>
     );
