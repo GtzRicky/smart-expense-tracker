@@ -3,6 +3,9 @@ import ExpensesList from './ExpensesList';
 import Card from '../UI/Card';
 import ExpensesFilter from './ExpensesFilter';
 import './Expenses.css';
+import ExpensesChart from './ExpensesChart';
+import ExpensesTotal from './ExpensesTotal';
+
 
 const Expenses = (props) => {
 
@@ -14,10 +17,15 @@ const Expenses = (props) => {
 
     const filteredExpenses = props.expenses.filter(expense => expense.date.getFullYear().toString() === filteredYear);
 
+    const annualExpenses = filteredExpenses.map(expense => expense.amount);
+
+
     return (
         <div>
             <Card className="expenses">
                 <ExpensesFilter onExpensesFilterChange={handleExpensesFilterChange} selectedYear={filteredYear} />
+                <ExpensesChart expenses={filteredExpenses} />
+                <ExpensesTotal expense={annualExpenses} year={filteredYear}/>
                 <ExpensesList items={filteredExpenses}/>
             </Card>
         </div>

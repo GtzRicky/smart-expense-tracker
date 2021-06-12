@@ -25,6 +25,24 @@ const INITIAL_EXPENSES = [
     title: 'New Desk (Wooden)',
     amount: 450,
     date: new Date(2021, 5, 12),
+  },
+  {
+    id: 'e5',
+    title: 'Books',
+    amount: 1589.67,
+    date: new Date(2020, 1, 5),
+  },
+  {
+    id: 'e6',
+    title: 'Dentist',
+    amount: 570.00,
+    date: new Date(2021, 11, 28),
+  },
+  {
+    id: 'e6',
+    title: 'Gym',
+    amount: 680.00,
+    date: new Date(2019, 6, 28),
   }
 ];
 
@@ -40,7 +58,7 @@ function App() {
 
   return (
     <div>
-      <NewExpense onAddExpense={handleAddExpense}/>
+      <NewExpense onAddExpense={handleAddExpense} /> 
       <Expenses expenses={expenses}/>
     </div>
   );
