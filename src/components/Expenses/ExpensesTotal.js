@@ -7,7 +7,7 @@ const ExpensesTotal = (props) => {
 
     props.expense.forEach(expense => {
         totalExpense += expense;
-        return totalExpense;
+        return totalExpense.toFixed(2);
     });
 
     return (
